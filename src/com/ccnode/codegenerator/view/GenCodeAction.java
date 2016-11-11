@@ -81,8 +81,6 @@ public class GenCodeAction extends AnAction {
             LOGGER.error("actionPerformed error",e);
             genCodeResponse.setThrowable(e);
         }finally {
-            GenCodeServerRequest request = SendToServerService.buildGenCodeRequest(genCodeResponse);
-            SendToServerService.post(project, request);
         }
         VirtualFileManager.getInstance().syncRefresh();
     }
