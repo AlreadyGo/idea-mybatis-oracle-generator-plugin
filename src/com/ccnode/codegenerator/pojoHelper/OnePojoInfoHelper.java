@@ -14,6 +14,7 @@ import com.intellij.psi.PsiField;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiType;
 import com.intellij.psi.impl.source.PsiClassImpl;
+import com.intellij.psi.impl.source.PsiModifierListImpl;
 import com.intellij.psi.impl.source.javadoc.PsiDocCommentImpl;
 import com.intellij.psi.impl.source.tree.PsiCommentImpl;
 import com.intellij.psi.search.EverythingGlobalScope;
@@ -27,6 +28,7 @@ import org.slf4j.Logger;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.apache.commons.io.IOUtils.writeLines;
@@ -83,7 +85,7 @@ public class OnePojoInfoHelper {
         onePojoInfo.setPojoPackage(parsePackage(text));
         PsiField[] allFields = psiClass.getAllFields();
         List<PojoFieldInfo> fieldList = Lists.newArrayList();
-
+        ArrayList idList = Lists.newArrayList();
         for (PsiField field : allFields) {
             if(isStaticField(field)){
                 continue;
@@ -98,11 +100,29 @@ public class OnePojoInfoHelper {
             fieldInfo.setFieldName(field.getName());
             fieldInfo.setFieldClass(type.getPresentableText());
             fieldInfo.setAnnotations(Lists.newArrayList());
+            if(isId(field).booleanValue()) {
+                idList.add(fieldInfo);
+                fieldInfo.setId(Boolean.valueOf(true));
+            }
             fieldList.add(fieldInfo);
         }
+        onePojoInfo.setIdFieldInfos(idList);
         onePojoInfo.setPojoFieldInfos(fieldList);
     }
+    private static Boolean isId(PsiField field) {
+        PsiElement[] children = field.getChildren();
+        PsiElement[] var2 = children;
+        int var3 = children.length;
 
+        for(int var4 = 0; var4 < var3; ++var4) {
+            PsiElement element = var2[var4];
+            if(element instanceof PsiModifierListImpl) {
+                return Boolean.valueOf(((PsiModifierListImpl)element).findAnnotation("javax.persistence.Id") != null);
+            }
+        }
+
+        return Boolean.valueOf(false);
+    }
     private static Boolean isSupportType(String fieldType){
         if(StringUtils.isBlank(fieldType)){
             return false;
@@ -317,7 +337,7 @@ public class OnePojoInfoHelper {
             }
         }
         return Pair.of(newFiles, updatedFiles);
-        
+
     }
 
     private static Integer countChangeRows(List<String> oldLines, List<String> newLines) {

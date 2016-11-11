@@ -12,9 +12,9 @@ import java.util.List;
  * Created by zhengjun.du on 2016/05/17 19:57
  */
 public class OnePojoInfo {
-
     List<GeneratedFile> files;
     List<PojoFieldInfo> pojoFieldInfos;
+    List<PojoFieldInfo> idFieldInfos;
     GenCodeConfig genCodeConfig;
     DirectoryConfig directoryConfig;
     PsiClassImpl psiClass;
@@ -31,8 +31,19 @@ public class OnePojoInfo {
     String fullMapperPath;
     String pojoClassSimpleName;
 
+    public OnePojoInfo() {
+    }
+
+    public List<PojoFieldInfo> getIdFieldInfos() {
+        return this.idFieldInfos;
+    }
+
+    public void setIdFieldInfos(List<PojoFieldInfo> idFieldInfos) {
+        this.idFieldInfos = idFieldInfos;
+    }
+
     public String getPojoName() {
-        return pojoName;
+        return this.pojoName;
     }
 
     public void setPojoName(String pojoName) {
@@ -40,7 +51,7 @@ public class OnePojoInfo {
     }
 
     public DirectoryConfig getDirectoryConfig() {
-        return directoryConfig;
+        return this.directoryConfig;
     }
 
     public void setDirectoryConfig(DirectoryConfig directoryConfig) {
@@ -48,7 +59,7 @@ public class OnePojoInfo {
     }
 
     public List<GeneratedFile> getFiles() {
-        return files;
+        return this.files;
     }
 
     public void setFiles(List<GeneratedFile> files) {
@@ -56,7 +67,7 @@ public class OnePojoInfo {
     }
 
     public List<PojoFieldInfo> getPojoFieldInfos() {
-        return pojoFieldInfos;
+        return this.pojoFieldInfos;
     }
 
     public void setPojoFieldInfos(List<PojoFieldInfo> pojoFieldInfos) {
@@ -64,7 +75,7 @@ public class OnePojoInfo {
     }
 
     public GenCodeConfig getGenCodeConfig() {
-        return genCodeConfig;
+        return this.genCodeConfig;
     }
 
     public void setGenCodeConfig(GenCodeConfig genCodeConfig) {
@@ -72,7 +83,7 @@ public class OnePojoInfo {
     }
 
     public Class getPojoClass() {
-        return pojoClass;
+        return this.pojoClass;
     }
 
     public void setPojoClass(@Nullable Class pojoClass) {
@@ -80,7 +91,7 @@ public class OnePojoInfo {
     }
 
     public String getFullPojoPath() {
-        return fullPojoPath;
+        return this.fullPojoPath;
     }
 
     public void setFullPojoPath(String fullPojoPath) {
@@ -88,7 +99,7 @@ public class OnePojoInfo {
     }
 
     public String getPojoPackage() {
-        return pojoPackage;
+        return this.pojoPackage;
     }
 
     public void setPojoPackage(String pojoPackage) {
@@ -96,7 +107,7 @@ public class OnePojoInfo {
     }
 
     public String getDaoPackage() {
-        return daoPackage;
+        return this.daoPackage;
     }
 
     public void setDaoPackage(String daoPackage) {
@@ -104,7 +115,7 @@ public class OnePojoInfo {
     }
 
     public String getServicePackage() {
-        return servicePackage;
+        return this.servicePackage;
     }
 
     public void setServicePackage(String servicePackage) {
@@ -112,7 +123,7 @@ public class OnePojoInfo {
     }
 
     public String getPojoClassSimpleName() {
-        return pojoClassSimpleName;
+        return this.pojoClassSimpleName;
     }
 
     public void setPojoClassSimpleName(String pojoClassSimpleName) {
@@ -120,7 +131,7 @@ public class OnePojoInfo {
     }
 
     public PsiClassImpl getPsiClass() {
-        return psiClass;
+        return this.psiClass;
     }
 
     public void setPsiClass(PsiClassImpl psiClass) {
@@ -128,7 +139,7 @@ public class OnePojoInfo {
     }
 
     public String getFullDaoPath() {
-        return fullDaoPath;
+        return this.fullDaoPath;
     }
 
     public void setFullDaoPath(String fullDaoPath) {
@@ -136,7 +147,7 @@ public class OnePojoInfo {
     }
 
     public String getFullServicePath() {
-        return fullServicePath;
+        return this.fullServicePath;
     }
 
     public void setFullServicePath(String fullServicePath) {
@@ -144,7 +155,7 @@ public class OnePojoInfo {
     }
 
     public String getFullSqlPath() {
-        return fullSqlPath;
+        return this.fullSqlPath;
     }
 
     public void setFullSqlPath(String fullSqlPath) {
@@ -152,7 +163,7 @@ public class OnePojoInfo {
     }
 
     public String getFullMapperPath() {
-        return fullMapperPath;
+        return this.fullMapperPath;
     }
 
     public void setFullMapperPath(String fullMapperPath) {
@@ -160,7 +171,7 @@ public class OnePojoInfo {
     }
 
     public String getPojoDirPath() {
-        return pojoDirPath;
+        return this.pojoDirPath;
     }
 
     public void setPojoDirPath(String pojoDirPath) {

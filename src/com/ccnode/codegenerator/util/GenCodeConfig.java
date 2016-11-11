@@ -11,17 +11,28 @@ import java.util.Map;
  * Created by zhengjun.du on 2016/04/16 23:28
  */
 public class GenCodeConfig {
-
-    String projectPath = StringUtils.EMPTY;
-    String serviceDir = StringUtils.EMPTY;
-    String mapperDir = StringUtils.EMPTY;
-    String sqlDir = StringUtils.EMPTY;
-    String daoDir = StringUtils.EMPTY;
+    String projectPath = "";
+    String serviceDir = "";
+    String mapperDir = "";
+    String sqlDir = "";
+    String daoDir = "";
     String pojoName;
-    Map<String,String> configMap = Maps.newHashMap();
+    String tableName = "";
+    Map<String, String> configMap = Maps.newHashMap();
+
+    public GenCodeConfig() {
+    }
+
+    public String getTableName() {
+        return this.tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
 
     public Map<String, String> getConfigMap() {
-        return configMap;
+        return this.configMap;
     }
 
     public void setConfigMap(Map<String, String> configMap) {
@@ -29,7 +40,7 @@ public class GenCodeConfig {
     }
 
     public String getPojoName() {
-        return pojoName;
+        return this.pojoName;
     }
 
     public void setPojoName(String pojoName) {
@@ -37,7 +48,7 @@ public class GenCodeConfig {
     }
 
     public String getProjectPath() {
-        return projectPath;
+        return this.projectPath;
     }
 
     public void setProjectPath(String projectPath) {
@@ -45,7 +56,7 @@ public class GenCodeConfig {
     }
 
     public String getServiceDir() {
-        return serviceDir;
+        return this.serviceDir;
     }
 
     public void setServiceDir(String serviceDir) {
@@ -53,7 +64,7 @@ public class GenCodeConfig {
     }
 
     public String getMapperDir() {
-        return mapperDir;
+        return this.mapperDir;
     }
 
     public void setMapperDir(String mapperDir) {
@@ -61,7 +72,7 @@ public class GenCodeConfig {
     }
 
     public String getSqlDir() {
-        return sqlDir;
+        return this.sqlDir;
     }
 
     public void setSqlDir(String sqlDir) {
@@ -69,7 +80,7 @@ public class GenCodeConfig {
     }
 
     public String getDaoDir() {
-        return daoDir;
+        return this.daoDir;
     }
 
     public void setDaoDir(String daoDir) {

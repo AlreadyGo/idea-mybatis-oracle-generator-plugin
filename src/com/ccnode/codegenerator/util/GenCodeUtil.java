@@ -84,7 +84,7 @@ public class GenCodeUtil {
             indexOf = StringUtils.indexOf(path, "com");
 //            throw new RuntimeException("invalid path:"+path +", Please input an valid path");
         }
-        String subPath = path.substring(indexOf);
+        String subPath = pathToPackage(path.substring(indexOf));
         String separator = System.getProperty("file.separator");
         String replace = subPath.replace(separator, ".");
         return replace;

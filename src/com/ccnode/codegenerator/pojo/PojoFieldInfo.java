@@ -11,14 +11,25 @@ import java.util.List;
  * Created by zhengjun.du on 2016/05/17 19:41
  */
 public class PojoFieldInfo {
-
     String fieldName;
     String fieldClass;
     String fieldComment;
     List<Annotation> annotations;
+    Boolean isId;
+
+    public PojoFieldInfo() {
+    }
+
+    public Boolean getId() {
+        return this.isId;
+    }
+
+    public void setId(Boolean id) {
+        this.isId = id;
+    }
 
     public String getFieldName() {
-        return fieldName;
+        return this.fieldName;
     }
 
     public void setFieldName(@Nullable String fieldName) {
@@ -26,7 +37,7 @@ public class PojoFieldInfo {
     }
 
     public String getFieldClass() {
-        return fieldClass;
+        return this.fieldClass;
     }
 
     public void setFieldClass(String fieldClass) {
@@ -34,7 +45,7 @@ public class PojoFieldInfo {
     }
 
     public List<Annotation> getAnnotations() {
-        return annotations;
+        return this.annotations;
     }
 
     public void setAnnotations(List<Annotation> annotations) {
@@ -42,7 +53,7 @@ public class PojoFieldInfo {
     }
 
     public String getFieldComment() {
-        return fieldComment;
+        return this.fieldComment;
     }
 
     public void setFieldComment(String fieldComment) {

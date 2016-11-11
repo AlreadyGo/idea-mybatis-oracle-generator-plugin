@@ -48,16 +48,9 @@ public class InitialService {
                 onePojoInfo.setFullMapperPath(genPath(response, pojoDirPath, config.getMapperDir(), pojoName,"Dao.xml"));
                 onePojoInfo.setFullPojoPath(fullPojoPath);
                 OnePojoInfoHelper.parseIdeaFieldInfo(onePojoInfo, response);
-                // todo fix daoPackage Bug
-//                onePojoInfo.setDaoPackage(GenCodeUtil
-//                        .deducePackage(StringUtils.defaultIfEmpty(config.getDaoDir(),pojoDirPath) ,onePojoInfo.getPojoPackage()));
-//                onePojoInfo.setServicePackage(GenCodeUtil.deducePackage(StringUtils.defaultIfEmpty(config.getServiceDir(),pojoDirPath) ,onePojoInfo.getPojoPackage()));
-                List<PojoFieldInfo> pojoFieldInfos = onePojoInfo.getPojoFieldInfos();
+                List<PojoFieldInfo> pojoFieldInfos = onePojoInfo.getIdFieldInfos();
                 String concat = StringUtils.EMPTY;
-                for (PojoFieldInfo pojoFieldInfo : pojoFieldInfos) {
-                    concat += "|"+pojoFieldInfo.getFieldName();
-                }
-                if(!concat.contains("id")){
+                if(pojoFieldInfos==null || pojoFieldInfos.size()==0){
                     LOGGER.error(pojoName + " should has 'id' field");
                     return response.failure(pojoName + " should has 'id' field");
                 }

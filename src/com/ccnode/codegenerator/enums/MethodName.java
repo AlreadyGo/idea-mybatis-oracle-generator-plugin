@@ -12,7 +12,8 @@ public enum MethodName {
     select(2,"插入"),
     update(3,"插入"),
     delete(4,"插入"),
-    none(-1,"none");
+    none(-1,"none"),
+    getCount(5,"插入");
 
     private Integer code;
     private String desc;
