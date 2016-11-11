@@ -15,14 +15,14 @@ source code of CodeHelper.generator
       <li><p>just Support java + oracle </p></li>
       <li><p>you can have your own config called 'codehelper.properties' in the root project path
       <br/>
-      this is a typical template:
-          pojos=MsgIn
-          ### path directory configuration
-          mapper.path=src/main/resources/mappers
-          dao.path=src/main/java/net/easipay/dao
-          service.path=src/main/java/net/easipay/service/impl
-          table.name=RISK_MSGIN
-          sql.path=sql/
+      this is a typical template:<br>
+          pojos=MsgIn<br>
+          ### path directory configuration<br>
+          mapper.path=src/main/resources/mappers<br>
+          dao.path=src/main/java/net/easipay/dao<br>
+          service.path=src/main/java/net/easipay/service/impl<br>
+          table.name=RISK_MSGIN<br>
+          sql.path=sql/<br>
       </p></li>
       </ul>
 </div>
